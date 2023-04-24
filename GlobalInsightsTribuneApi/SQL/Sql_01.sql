@@ -44,3 +44,8 @@ CREATE TABLE comments_table (
     news_id INTEGER REFERENCES news_table (id),
     date_publication TIMESTAMP NOT NULL DEFAULT now()
 );
+-- REMOVE TABLE CATEGORY
+
+alter table news_table  drop constraint news_table_category_id_fkey; 
+drop table category_table
+alter table news_table rename column category_id to category
