@@ -15,7 +15,7 @@ namespace GlobalInsightsTribuneApi
 
             builder.Services.AddDbContext<NewsManagerContext> (options =>
             {
-                options.UseNpgsql(builder.Configuration.GetConnectionString("DevelopmentConnection"));
+                options.UseNpgsql(builder.Configuration.GetConnectionString(Environment.GetEnvironmentVariable("MySqlConnection");));
                     
             });
             builder.Services.AddControllers();
