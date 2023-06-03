@@ -28,17 +28,6 @@ namespace GlobalInsightsTribune.MVC
                 app.UseDeveloperExceptionPage();
             }
 
-            var scope = app.Services.CreateScope();
-            try
-            {
-                var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                context.Database.Migrate();
-            }
-            catch (Exception ex)
-            {
-                scope.ServiceProvider.GetRequiredService<ILogger<Program>>().LogError(ex, "An error occurred in the migration and/or insertion of data"); 
-            }
-
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "GlobalInsightsTribune V1"); });
 

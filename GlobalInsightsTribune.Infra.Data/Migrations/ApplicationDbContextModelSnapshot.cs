@@ -40,9 +40,6 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NewsId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Comment");
                 });
@@ -115,35 +112,7 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("GlobalInsightsTribune.Domain.Entities.Comment", b =>
-                {
-                    b.HasOne("GlobalInsightsTribune.Domain.Entities.News", "News")
-                        .WithMany("Comments")
-                        .HasForeignKey("NewsId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("GlobalInsightsTribune.Domain.Entities.User", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("News");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("GlobalInsightsTribune.Domain.Entities.News", b =>
-                {
-                    b.Navigation("Comments");
-                });
-
-            modelBuilder.Entity("GlobalInsightsTribune.Domain.Entities.User", b =>
-                {
-                    b.Navigation("Comments");
-                });
-#pragma warning restore 612, 618
+         #pragma warning restore 612, 618
         }
     }
 }

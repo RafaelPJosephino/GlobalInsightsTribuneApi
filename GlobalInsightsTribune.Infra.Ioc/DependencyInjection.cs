@@ -19,7 +19,7 @@ namespace GlobalInsightsTribune.Infra.Ioc
             services.AddDbContext<ApplicationDbContext>(options => 
                 { 
                     options.UseMySql(
-                        configuration.GetConnectionString("TestConnection"),
+                        configuration.GetConnectionString("ProductionConnection"),
                         ServerVersion.Parse("8.0.23")
                         ); 
                 });
