@@ -23,7 +23,7 @@ namespace GlobalInsightsTribune.Infra.Ioc
                         ServerVersion.Parse("8.0.23")
                         ); 
                 });
-
+            services.AddDataProtection();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GlobalInsightsTribune", Version = "v1" });
