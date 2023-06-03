@@ -24,7 +24,6 @@ namespace GlobalInsightsTribune.Infra.Ioc
                         ServerVersion.Parse("8.0.23")
                         ); 
                 });
-            services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo("app/Keys")).ProtectKeysWithDpapi();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GlobalInsightsTribune", Version = "v1" });
