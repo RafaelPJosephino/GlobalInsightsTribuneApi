@@ -3,6 +3,7 @@ using GlobalInsightsTribune.Application.Services;
 using GlobalInsightsTribune.Domain.Interfaces;
 using GlobalInsightsTribune.Infra.Data.Context;
 using GlobalInsightsTribune.Infra.Data.Repositories;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +24,7 @@ namespace GlobalInsightsTribune.Infra.Ioc
                         ServerVersion.Parse("8.0.23")
                         ); 
                 });
-            services.AddDataProtection();
+            services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo("app/Keys")).ProtectKeysWithDpapi();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GlobalInsightsTribune", Version = "v1" });
