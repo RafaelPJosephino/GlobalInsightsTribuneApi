@@ -8,13 +8,22 @@
     }
   },
   "profiles": {
-    "GlobalInsightsTribune.MVC": {
+    "GlobalInsightsTribune.MVC-Development": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7206;http://localhost:5146",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "GlobalInsightsTribune.MVC-Production": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://globalinsightstribuneapi-production.up.railway.app:7206;http://globalinsightstribuneapi-production.up.railway.app:5146",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
     "IIS Express": {
