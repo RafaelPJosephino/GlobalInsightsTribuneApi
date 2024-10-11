@@ -18,7 +18,8 @@ namespace GlobalInsightsTribune.MVC
             builder.Services.AddAutoMapperConfiguration();
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
-            
+            builder.Services.AddHealthChecks();
+
             var app = builder.Build();
 
             
@@ -37,7 +38,10 @@ namespace GlobalInsightsTribune.MVC
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints => { 
+                endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
+            });
 
             app.Run();
         }
