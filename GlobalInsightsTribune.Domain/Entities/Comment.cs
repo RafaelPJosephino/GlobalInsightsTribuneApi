@@ -16,7 +16,7 @@ namespace GlobalInsightsTribune.Domain.Entities
         public string Content { get; private set; }
         public DateTime CommentDate { get; private set; }
 
-
+        //teste
 
         public Comment(int newsId, int userId, string content, DateTime commentDate)
         {
