@@ -12,7 +12,7 @@ namespace GlobalInsightsTribune.MVC
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            // Test comentary
             // Add services to the container.
             builder.Services.AddInfrastructure();
             builder.Services.AddAutoMapperConfiguration();
