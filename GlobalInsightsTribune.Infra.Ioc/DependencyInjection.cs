@@ -35,7 +35,11 @@ namespace GlobalInsightsTribune.Infra.Ioc
             services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo("/root/.aspnet/DataProtection-Keys"));
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GlobalInsightsTribune", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { 
+                    Title = "GlobalInsightsTribune", 
+                    Version = "v1",
+                    Description = "This News API provides access to a wide range of articles and real-time news information. It enables users to search, filter, and access the latest updates from various news sources, facilitating the creation of informative and dynamic applications. Developed by [Dinesh Joshi](https://www.linkedin.com/in/dinesh-joshi-1029a9286/) and [Rafael P. Josephino](https://www.linkedin.com/in/rafael-puckoski-josephino/)."
+                });
             });
 
             services.AddScoped<IUserRepository, UserRepository>();
