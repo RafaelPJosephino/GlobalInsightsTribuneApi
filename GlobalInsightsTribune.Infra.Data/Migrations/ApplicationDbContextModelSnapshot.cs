@@ -16,7 +16,7 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("GlobalInsightsTribune.Domain.Entities.Comment", b =>
@@ -26,7 +26,7 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CommentDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -39,7 +39,6 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
 
                     b.ToTable("Comment");
                 });
@@ -66,7 +65,7 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<DateTime>("PublicationDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -111,8 +110,7 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
 
                     b.ToTable("User");
                 });
-
-         #pragma warning restore 612, 618
+#pragma warning restore 612, 618
         }
     }
 }
