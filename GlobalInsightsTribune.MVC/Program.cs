@@ -14,7 +14,7 @@ namespace GlobalInsightsTribune.MVC
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddInfrastructure();
+            builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.AddAutoMapperConfiguration();
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
@@ -23,7 +23,6 @@ namespace GlobalInsightsTribune.MVC
             var app = builder.Build();
 
             
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -38,10 +37,8 @@ namespace GlobalInsightsTribune.MVC
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseEndpoints(endpoints => { 
-                endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health");
-            });
+            app.MapControllers();
+            app.MapHealthChecks("/health");
 
             app.Run();
         }

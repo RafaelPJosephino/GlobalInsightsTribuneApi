@@ -13,7 +13,7 @@ namespace GlobalInsightsTribune.Domain.Entities
         public int Id { get; private set; }
         public int NewsId { get; private set; }
         public int UserId { get; private set; }
-        public string Content { get; private set; }
+        public string Content { get; private set; } = string.Empty;
         public DateTime CommentDate { get; private set; }
 
         //teste

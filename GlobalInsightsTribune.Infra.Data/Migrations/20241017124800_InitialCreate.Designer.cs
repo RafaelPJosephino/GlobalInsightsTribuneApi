@@ -11,14 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GlobalInsightsTribune.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230601232322_initial")]
-    partial class initial
+    [Migration("20241017124800_InitialCreate")]
+    partial class InitialCreate
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("GlobalInsightsTribune.Domain.Entities.Comment", b =>
@@ -28,7 +29,7 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CommentDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -41,10 +42,6 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("NewsId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Comment");
                 });
@@ -71,7 +68,7 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
                         .HasColumnType("varchar(200)");
 
                     b.Property<DateTime>("PublicationDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -115,35 +112,6 @@ namespace GlobalInsightsTribune.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
-                });
-
-            modelBuilder.Entity("GlobalInsightsTribune.Domain.Entities.Comment", b =>
-                {
-                    b.HasOne("GlobalInsightsTribune.Domain.Entities.News", "News")
-                        .WithMany("Comments")
-                        .HasForeignKey("NewsId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("GlobalInsightsTribune.Domain.Entities.User", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("News");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("GlobalInsightsTribune.Domain.Entities.News", b =>
-                {
-                    b.Navigation("Comments");
-                });
-
-            modelBuilder.Entity("GlobalInsightsTribune.Domain.Entities.User", b =>
-                {
-                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }
