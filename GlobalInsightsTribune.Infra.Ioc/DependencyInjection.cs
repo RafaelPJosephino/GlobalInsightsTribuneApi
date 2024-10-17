@@ -22,7 +22,7 @@ namespace GlobalInsightsTribune.Infra.Ioc
             services.AddDbContext<ApplicationDbContext>(options =>
                 {
                     options.UseMySql(
-                        Environment.GetEnvironmentVariable("PRODUCTIONCONNECTION") ??configuration.GetConnectionString("DefaultConnection"),
+                        Environment.GetEnvironmentVariable("DATABASE_URL") ??configuration.GetConnectionString("DefaultConnection"),
                         ServerVersion.Parse("8.0.23")
                      );
                 });
