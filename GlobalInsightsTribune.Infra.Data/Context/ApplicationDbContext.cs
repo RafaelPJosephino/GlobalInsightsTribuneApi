@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace GlobalInsightsTribune.Infra.Data.Context
 {
-    public class ApplicationDbContext: DbContext
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
     {
-        public ApplicationDbContext(DbContextOptions options) :base(options) { }
-
-        public DbSet<User> User { get; set; }
-        public DbSet<News> News { get; set; }
-        public DbSet<Comment> Comment { get; set; }
+        public DbSet<User> User { get; set; } = null!;
+        public DbSet<News> News { get; set; } = null!;
+        public DbSet<Comment> Comment { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

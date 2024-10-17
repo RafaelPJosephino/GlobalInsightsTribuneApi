@@ -12,11 +12,11 @@ namespace GlobalInsightsTribune.Domain.Entities
     public class News
     {
         public int Id { get; private set; }
-        public string Title { get; private set; }
-        public string Image { get; private set; }
-        public string Author { get; private set; }
+        public string Title { get; private set; } = string.Empty;
+        public string Image { get; private set; } = string.Empty;
+        public string Author { get; private set; } = string.Empty;
         public DateTime PublicationDate { get; private set; }
-        public string Description { get; private set; }
+        public string Description { get; private set; } = string.Empty;
 
         public News(int id, string title, string image, string author, DateTime publicationDate, string description)
         {

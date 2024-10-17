@@ -11,10 +11,10 @@ namespace GlobalInsightsTribune.Domain.Entities
     public class User
     {
         public int Id { get; private set; }
-        public string Name { get; private set; }
-        public string Username { get; private set; }
-        public string Email { get; private set; }
-        public string Password { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public string Username { get; private set; } = string.Empty;
+        public string Email { get; private set; } = string.Empty;
+        public string Password { get; private set; } = string.Empty;
         public bool IsAdmin { get; private set; }
 
         public User(int id, string name, string username, string email, string password, bool isAdmin)
