@@ -17,7 +17,7 @@ namespace GlobalInsightsTribune.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.Title).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Image).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Author).IsRequired().HasMaxLength(200);
-            builder.Property(x => x.PublicationDate).IsRequired();
+            builder.Property(x => x.PublicationDate).IsRequired().HasColumnType("datetime"); 
             builder.Property(x => x.Description).IsRequired().HasMaxLength(200);
 
         }

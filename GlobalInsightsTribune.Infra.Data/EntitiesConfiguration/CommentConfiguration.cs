@@ -12,7 +12,7 @@ namespace GlobalInsightsTribune.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.UserId).IsRequired();
             builder.Property(x => x.NewsId).IsRequired();
             builder.Property(x => x.Content).IsRequired();
-            builder.Property(x => x.CommentDate).IsRequired();
+            builder.Property(x => x.CommentDate).IsRequired().HasColumnType("datetime"); 
 
 
         }
